@@ -222,7 +222,7 @@ export default class App extends Vue {
   }
 
   onPlayPauseButtonPress() {
-    window.ipcRenderer.invoke('change-play-status', !this.isPaused);
+    window.ipcRenderer.invoke('change-play-status');
   }
 
   logToConsole(loggable: unknown) {
@@ -307,8 +307,8 @@ export default class App extends Vue {
       });
     });
 
-    window.ipcRenderer.on('change-play-status', (_, status: boolean) => {
-      this.isPaused = status;
+    window.ipcRenderer.on('change-play-status', () => {
+      this.isPaused = !this.isPaused;
     });
 
     window.ipcRenderer.on('change-hotkey', (_, keyBinds: ChangeKeyboardShortcut) => {

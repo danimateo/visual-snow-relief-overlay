@@ -247,6 +247,11 @@ app.on('ready', async () => {
 
   wins.forEach(win => win.webContents.send('setup-timers'));
 
+  // play/pause shortcut
+  globalShortcut.register('CommandOrControl+Alt+9', () => {
+    wins.forEach(w => w.webContents.send('change-play-status'));
+  });
+
   // We need to check this after we create all the windows
   // So the event is passed to all of them.
   // We do this to allow input when the window is not opened first
