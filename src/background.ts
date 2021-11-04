@@ -257,7 +257,7 @@ app.on('ready', async () => {
   // We do this to allow input when the window is not opened first
   if (!(await checkIfShouldShowScreen)) setIgnoreMouseEvents(true);
 
-  await autoUpdater.checkForUpdatesAndNotify();
+  // await autoUpdater.checkForUpdatesAndNotify();
 
   wins.forEach(w => {
     // Open links in default browser
